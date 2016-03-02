@@ -4,42 +4,36 @@
   <li><a class="logo" id="active" href="#/eventsHome">StudyMate</a></li>
   <li class="logout pull-right"ng-click="signout()"><a href="#/signin" >logout</a></li>
 </ul>
-<div class="container-fluid">
 
 
-  <div class="row-fluid" ng-controller="createEventCtrl">
-    <button id="createNew" class="btn btn-success" ng-click="showHostEventDropdown()">Host a New Event</button>
 
-    <div id="createEvent" class="col-md-5 col-sm-12 col-xs-12" centered>
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          Post an Event!
-        </div>
-        <div class="panel-body">
-          <form class="createEvent form-horizontal" ng-submit="sendEvent()">
 
-            <span class="glyphicon glyphicon-text-background"></span>
-            <input class="form-control" type="text" ng-model="event.topic" placeholder="Topic" required autofocus></input><br>
-            <span class="glyphicon glyphicon-map-marker"></span>
-            <input class="form-control" type="text" ng-model="event.place" placeholder="Place" required></input><br>
-            <span class="glyphicon glyphicon-calendar"></span>
-            <input class="form-control dropdown" type="date" ng-model="event.date" required min="{{currentDate | date: 'yyyy-MM-dd'}}"></input><br>
-            <span class="glyphicon glyphicon-time"></span>
-            <input class="form-control" type="time" ng-model="event.time" required><br>
-
-            <button class="btn btn-primary addRemoveButton">Add</button>
-          </form>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-<div class="clearfix visible-sm"></div>
 
   <!-- <div class="row-fluid"> -->
-    <div id="eventsList" class="col-md-7 col-sm-12 col-xs-12" centered>
+    <div id="eventsList" class="col-md-8 col-sm-12 col-xs-12 eventListPanel">
       <div ng-controller="eventsListCtrl">
+        <!-- Add Event Table -->
+        <div ng-controller="createEventCtrl" class="panel panel-primary" isOpen="false">
+          <div class="panel-heading" ng-click="isOpen = !isOpen">
+            Don't see an event you like? Host a new Event! +
+          </div>
+          <div class="panel-body" ng-show="isOpen">
+            <form class="createEvent form-horizontal" ng-submit="sendEvent()">
+
+              <span class="glyphicon glyphicon-text-background"></span>
+              <input class="form-control" type="text" ng-model="event.topic" placeholder="Topic" required autofocus></input><br>
+              <span class="glyphicon glyphicon-map-marker"></span>
+              <input class="form-control" type="text" ng-model="event.place" placeholder="Place" required></input><br>
+              <span class="glyphicon glyphicon-calendar"></span>
+              <input class="form-control dropdown" type="date" ng-model="event.date" required min="{{currentDate | date: 'yyyy-MM-dd'}}"></input><br>
+              <span class="glyphicon glyphicon-time"></span>
+              <input class="form-control" type="time" ng-model="event.time" required><br>
+
+              <button class="btn btn-primary addRemoveButton">Add</button>
+            </form>
+          </div>
+        </div>
+
         <ul class="list-group">
           <li class="list-group-item" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
             <span class="col-sm-2 text-left pull-left"><strong>Topic:</strong></span>
@@ -62,5 +56,35 @@
         </ul>
       </div>
     </div>
+
+    <!-- <div class="clearfix visible-sm"></div> -->
+
+
+    <!-- <div ng-controller="createEventCtrl">
+
+      <div  class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="createEvent">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            Post an Event!
+          </div>
+          <div class="panel-body">
+            <form class="createEvent form-horizontal" ng-submit="sendEvent()">
+
+              <span class="glyphicon glyphicon-text-background"></span>
+              <input class="form-control" type="text" ng-model="event.topic" placeholder="Topic" required autofocus></input><br>
+              <span class="glyphicon glyphicon-map-marker"></span>
+              <input class="form-control" type="text" ng-model="event.place" placeholder="Place" required></input><br>
+              <span class="glyphicon glyphicon-calendar"></span>
+              <input class="form-control dropdown" type="date" ng-model="event.date" required min="{{currentDate | date: 'yyyy-MM-dd'}}"></input><br>
+              <span class="glyphicon glyphicon-time"></span>
+              <input class="form-control" type="time" ng-model="event.time" required><br>
+
+              <button class="btn btn-primary addRemoveButton">Add</button>
+            </form>
+          </div>
+        </div>
+      </div> -->
+
+    </div>
+
   <!-- </div> -->
-</div>
