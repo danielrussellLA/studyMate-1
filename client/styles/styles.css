@@ -146,10 +146,11 @@ h4 {
 }
 
 .joinLeaveButton:hover {
-  background-color: #F16767;
-  color: #FFF5F5;
+  background-color: #FFF5F5;
+  color: #444;
   border: 1px solid #FFF5F5;
 }
+
 
 /*signin signup styles*/
 .mainTitle {
@@ -222,7 +223,7 @@ h4 {
 
 
 .signinSignupBackground {
-  background-color: white;
+  background-color: rgba(255,255,255,.70);
   height: 80%;
   /*width: 60%;*/
   width: 400px;
