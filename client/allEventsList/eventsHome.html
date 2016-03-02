@@ -6,6 +6,15 @@
 </ul>
 
 
+  <div class="col-md-4 myEvents" ng-controller="eventsListCtrl">
+    <li class="list-group-item eventsListItem" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
+      <span>{{event.topic}}</span>
+      <span>{{event.place}}</span>
+      <span>{{event.formatted}}</span>
+      <span ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
+    </li>
+  </div>
+
 
 
 

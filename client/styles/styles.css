@@ -4,6 +4,10 @@
   display: block;
   z-index: 2;
 }
+.btn {
+  background-color: #64D4F9;
+  color: white;
+}
 .logo {
   font-family: 'Pacifico', sans-serif;
   font-size: 1.5em;
@@ -54,43 +58,26 @@
 body {
   padding-top: 40px;
   padding-bottom: 40px;
-  /*background-color: #eee;*/
-  /*background-color: #dae;*/
-  /*background-color: #574A66;*/
   background-image: url('http://p1.pichost.me/i/11/1344899.jpg');
   background-size: cover;
-  /*background: url('http://sussexliving.com/wp-content/uploads/2013/10/shutterstock_74085415small.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;*/
 }
 
 h4 {
   font-family: arial;
 }
 
+/************ myEventList ******************/
+.myEvents {
+  margin-top: 10px;
+}
 
-/*.jumbotron {
-  background: url('../assets/bookBanner.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  font-family: 'Pacifico', cursive;
-  color: white;
-  text-shadow: 0 0 30px #000;
- -moz-text-shadow: 0 0 30px #000;
- -webkit-text-shadow: 0 0 30px #000;
-}*/
+
 
 #eventsList {
   float: right;
   padding-top: 40px;
   /*margin: 0 auto;*/
-  color: #FFF5F5;
+  color: white;
 }
 .eventsList {
   margin-top: -20px;
@@ -140,8 +127,8 @@ h4 {
 
 
 .joinLeaveButton {
-  background-color: rgba(255,255,255,.20);
-  color: #FFF5F5;
+  background-color: rgba(255,255,255,.70);
+  color: #777;
   border: 1px solid #FFF5F5;
 }
 
@@ -152,17 +139,17 @@ h4 {
 }
 
 
-/*signin signup styles*/
+/********* SIGNIN SIGNUP **************/
 .mainTitle {
   font-size: 7em;
   font-family: 'Pacifico', sans-serif;
   text-align: center;
   margin-top: 60px;
-  color: #4682b4;
+  color: white;
 }
 .subTitle {
   text-align: center;
-  color: #0F4F85;
+  color: #64D4F9;
 }
 
 .form-signin {
@@ -211,11 +198,7 @@ h4 {
   text-align: center;
 }
 
-.instructions{
-  margin-top: 10px;
-  margin-bottom: 30px;
-  margin-left: 50px;
-}
+
 
 .arial {
   font-family: arial;
@@ -237,7 +220,7 @@ h4 {
   width: 400px;
   margin: 0;
   margin-left: -15px;
-  background-color: #4682b4;
+  background-color: #64D4F9;
   text-align: center;
   border-radius: 0;
   /*padding: 10px;*/
@@ -256,6 +239,9 @@ h4 {
   box-shadow: none;
   border-radius: 0;
 }
+.username:focus, .password:focus {
+  outline: none;
+}
 .password {
   border-left: none;
   border-right: none;
@@ -263,8 +249,16 @@ h4 {
   border-radius: 0;
 }
 
-.username:focus, .password:focus {
-  outline: none;
+
+.toggleSigninSignup {
+  color: #777;
+}
+
+.instructions{
+  margin-top: 10px;
+  margin-bottom: 30px;
+  margin-left: 50px;
+  color: #777;
 }
 
 
