@@ -10,12 +10,12 @@
 
 
   <!-- <div class="row-fluid"> -->
-    <div id="eventsList" class="col-md-8 col-sm-12 col-xs-12 eventListPanel">
+    <div id="eventsList" class="col-md-9 col-sm-12 col-xs-12 eventPanel">
       <div ng-controller="eventsListCtrl">
         <!-- Add Event Table -->
-        <div ng-controller="createEventCtrl" class="panel panel-primary" isOpen="false">
-          <div class="panel-heading" ng-click="isOpen = !isOpen">
-            Don't see an event you like? Host a new Event! +
+        <div ng-controller="createEventCtrl" class="panel panel-primary createEventHeader" isOpen="false">
+          <div class=" panel-heading createEventHeader" ng-click="isOpen = !isOpen">
+            + Host a new Event!
           </div>
           <div class="panel-body" ng-show="isOpen">
             <form class="createEvent form-horizontal" ng-submit="sendEvent()">
@@ -34,8 +34,8 @@
           </div>
         </div>
 
-        <ul class="list-group">
-          <li class="list-group-item" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
+        <ul class="list-group eventsList">
+          <li class="list-group-item eventsListItem" ng-repeat="event in data | filter: upcomingEvents | orderBy:'datetime'">
             <span class="col-sm-2 text-left pull-left"><strong>Topic:</strong></span>
             <span class="col-sm-4">{{event.topic}}</span>
             <br>
