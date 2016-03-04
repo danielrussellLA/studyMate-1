@@ -67,6 +67,7 @@ angular.module('studyMate')
       event: event
     };
 
+
     eventsListFact.eventToggle(eventData)
     .then(function(response) {
       if (response.isValid) {
@@ -76,11 +77,18 @@ angular.module('studyMate')
       }
     });
     $scope.getGuestList(event);
+
   };
 
   $scope.getGuestList = function(event) {
     var list = [];
     // list = [];
+    for(var i = 0; i < $scope.myEventsArray.length; i++){
+      if($scope.myEventsArray[i].id === event.id){
+        $scope.myEventsArray.splice(i, 1);
+      }
+    }
+
     eventsListFact.getGuestList(event.id)
     .then(function(data) {
       // $scope.myEventsArray = [];
@@ -94,6 +102,7 @@ angular.module('studyMate')
       console.log('++line85 data = ', $scope.data);
       console.log('++line 86: $scope.allGuestLists[event.id]  = ', $scope.allGuestLists[event.id]);
       console.log('++line87: event.id = ', event.id);
+
     });
     // $scope.$apply();
   };

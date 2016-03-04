@@ -102,6 +102,7 @@ h4 {
 .myEvents {
   margin-top: 10px;
   background-color: #F7C969;
+  /*position: fixed;*/
 }
 
 
@@ -118,8 +119,8 @@ h4 {
   margin-top: -20px;
   /*border-radius: 0px;*/
   /*border: 0;*/
-  max-height: 600px;
-  overflow: scroll;
+  /*max-height: 600px;*/
+  /*overflow: scroll;*/
 }
 .list-group-item {
   background-color: rgba(255,255,255,.13);
@@ -142,8 +143,10 @@ h4 {
 }
 
 #createEvent {
-  padding-top: 70px;
+  padding-top: 100px;
   /*margin: 0 auto;*/
+  /*position: fixed;*/
+  /*top: 100px;*/
 }
 
 .createEventHeader {
