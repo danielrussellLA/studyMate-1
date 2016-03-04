@@ -46,9 +46,15 @@ module.exports = {
   },
 
   getEvents: function(req, res) {
+    var token = req.body.token;
+    var currentUser = jwt.decode(token, 'deadpoolsecret').username;
+    console.log('++line 51 eventController currentUser: ', currentUser);
     Events.fetch()
       .then(function(collection) {
         collection = collection.toJSON();
+        for(var i = 0; i < collection.length; i++){
+          collection[i]['currentUser'] = currentUser;
+        }
         res.send(collection);
       });
   },

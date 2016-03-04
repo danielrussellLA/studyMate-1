@@ -13,6 +13,13 @@ angular.module('studyMate', ['ui.router'])
     authenticate: false,
     signedin: false
   })
+  .state('booksList', {
+    url: '/bookslist/:bookTopic',
+    templateUrl: 'booksList/booksList.html',
+    controllerAs: 'booksListCtrl',
+    authenticate: true,
+    signedin: false
+  })
   .state('signup', {
     url: '/signup',
     templateUrl: 'log/signup.html',

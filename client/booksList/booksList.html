@@ -1,0 +1,47 @@
+<!-- NAV BAR -->
+<ul class="navbar" ng-controller="eventsListCtrl">
+  <li><a class="logo" id="active" href="#/eventsHome">StudyMate</a></li>
+  <li class="logout pull-right"ng-click="signout()"><a href="#/signin" >logout</a></li>
+  <li class="eventsButton pull-right" ui-sref="eventsHome">Events</li>
+</ul>
+
+
+<div class="bookList"ng-controller="booksListCtrl" ng-init="bookSearch()">
+  <h1 class="bookListTitle">Books List</h1>
+
+
+  <ul ng-repeat="book in booksList">
+
+
+    <!-- Book Layout in Books page -->
+      <div class="row bookRow">
+
+        <a href = "{{ book.volumeInfo.infoLink }}">
+          <div class="col-sm-2 bookImage">
+            <span>
+              <img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}" />
+            </span>
+          </div>
+        </a>
+        <div class="col-sm-10 bookInfo">
+          <span id="bookInfoAuthor"><span class="bookInfoHeader">Title: {{ book.volumeInfo.title }}</span><br>
+
+          <span id="bookInfoAuthor"><span class="bookInfoHeader">Author:</span> {{ book.volumeInfo.authors[0] }}</span><br>
+          <span id="bookInfoCategory"><span class="bookInfoHeader">Category:</span> {{ book.volumeInfo.categories[0] }}</span><br>
+          <span id="bookInfoDescription">
+            <span class="bookInfoHeader">Description:</span>
+            <!-- Added expand to show the full book description. Every book has its own scope, so on click it will toggle to false or true, which triggers the respective ng-shows. -->
+            <div ng-show="!show" ng-model="show" ng-init="show=false">
+              <p>{{ book.volumeInfo.description.slice(0, 200) }}
+                <a href="" ng-click="show=true">... Read more</a></p>
+              </div>
+
+              <div ng-show="show" ng-model="show">
+                <p>{{ book.volumeInfo.description }}
+                  <a href="" ng-click="show=false">- Collapse</a></p>
+                </div>
+              </span>
+            </div>
+          </div>
+      </ul>
+    </div>

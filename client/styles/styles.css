@@ -3,6 +3,7 @@
   position: fixed;
   display: block;
   z-index: 2;
+  height: 50px;
 }
 .btn {
   background-color: #64D4F9;
@@ -57,9 +58,14 @@
 
 body {
   padding-top: 40px;
-  padding-bottom: 40px;
-  background-image: url('http://p1.pichost.me/i/11/1344899.jpg');
-  background-size: cover;
+  /*padding-bottom: 40px;*/
+  background-image: url('../assets/1344899.jpg');
+  background-size: stretch;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /*background-repeat: no-repeat;*/
 }
 
 h4 {
@@ -67,22 +73,54 @@ h4 {
 }
 
 /************ myEventList ******************/
+/*.myEventsButton {
+  border: 1px solid white;
+  border-radius: 4px;
+  text-align: center;
+  vertical-align: middle;
+  height: 40px;
+  margin-top: 3px;
+  margin-right: 10px;
+  font-size: 1em;
+  line-height: 10px;
+}
+.myEventsButton:hover {
+  background-color: #F7C969;
+}*/
+.myEventsListHeader {
+  height: 40px;
+  color: #333;
+  /*font-size: 1.5em;*/
+  z-index: 1;
+  padding: 10px;
+}
+
+.myEventsListHeader:hover {
+  cursor: hand;
+  /*margin-bottom: -40px;*/
+}
 .myEvents {
   margin-top: 10px;
+  background-color: #F7C969;
+  /*position: fixed;*/
 }
 
 
 
 #eventsList {
-  float: right;
-  padding-top: 40px;
+  padding: 0;
+  /*padding-top: 40px;*/
   /*margin: 0 auto;*/
+  /*margin-top: 0;*/
   color: white;
+  z-index: 0;
 }
 .eventsList {
   margin-top: -20px;
   /*border-radius: 0px;*/
   /*border: 0;*/
+  /*max-height: 600px;*/
+  /*overflow: scroll;*/
 }
 .list-group-item {
   background-color: rgba(255,255,255,.13);
@@ -92,22 +130,23 @@ h4 {
   color: white;
 }
 
-
 .eventPanel {
   margin-right: 0;
   top: 0;
   right: 0;
   bottom: 0;
   height: 100%;
-  overflow: scroll;
-  margin-top: -30px;
-  margin-right: -15px;
+  /*overflow: scroll;*/
+  /*margin-top: -40px;*/
+  /*margin-right: -15px;*/
+  margin-left: 0;
 }
 
 #createEvent {
-  float: left;
-  padding-top: 70px;
+  padding-top: 100px;
   /*margin: 0 auto;*/
+  /*position: fixed;*/
+  /*top: 100px;*/
 }
 
 .createEventHeader {
@@ -123,6 +162,12 @@ h4 {
 .panel-body {
   background-color: #F16767;
   color: #FFF5F5;
+}
+
+a {
+  color: #FFF5F5;
+  text-decoration: none;
+  font-size: 1em;
 }
 
 
@@ -271,8 +316,91 @@ form {
 
 
 
+
+/*books list page styles*/
+.eventsButton {
+  border: 1px solid white;
+  border-radius: 4px;
+  text-align: center;
+  /*vertical-align: middle;*/
+  padding: 10px;
+  padding-top:15px;
+  height: 40px;
+  margin-top: 3px;
+  margin-right: 10px;
+  width: 70px;
+  font-size: 1em;
+  line-height: 10px;
+  color: white;
+}
+.eventsButton:hover {
+  background-color: #F16767;
+}
+.bookList {
+  background-color: rgba(255,255,255,.10);
+  margin-top: -10px;
+}
+
+.bookListTitle {
+  /*margin: 50px 0px;*/
+  padding: 50px 0;
+  color: #FFF5F5;
+  display: block;
+  text-align: center;
+}
+
+div .bookInfoHeader{
+  font-weight: bold;
+  color: #FFF5F5;
+}
+.bookRow {
+  border: 1px solid white;
+  margin-left: -60px;
+  background-color: rgba(255,255,255,.30);
+  margin-top: -10px;
+}
+.bookRow:hover {
+  background-color: #15C2D2;
+  color: white;
+}
+
+.bookImage {
+  float: left;
+  margin: 20px 0;
+  margin-left: 10%;
+  /*margin-right: 20px;*/
+}
+.bookInfo {
+  float: left;
+  max-width: 500px;
+  margin-left: 25px;
+  margin: 30px 0;
+  /*color: #FFF5F5;*/
+}
+
+
+/*MEDIA QUERIES*/
 @media(max-width: 900px){
   .mainTitle {
     font-size: 5em;
+  }
+  .bookImage {
+    margin-left: 40%;
+  }
+  .bookInfo {
+    margin-left: 15%;
+  }
+}
+
+@media(max-width: 600px){
+  .mainTitle {
+    font-size: 5em;
+  }
+  .bookImage {
+    margin-left: 32%;
+  }
+  .bookInfo {
+    margin-left: 8%;
+    margin-right: 8%;
   }
 }

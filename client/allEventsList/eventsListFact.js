@@ -1,12 +1,12 @@
 angular.module('studyMate')
 
 .factory('eventsListFact', function($http) {
-  var getEvents = function() {
+  var getEvents = function(token) {
     return $http({
-      method: 'GET',
+      method: 'POST',
       url: '/api/events/getEvents',
+      data: {token: token}
     }).then( function successs(response) {
-      console.log(response);
       return response.data;
     }, function error(response) {
       console.log(response);
@@ -19,7 +19,6 @@ angular.module('studyMate')
       url: 'api/events/eventAttendanceToggle',
       data: eventData
     }).then(function(resp) {
-      console.log(resp);
       return resp.data;
     });
   };
@@ -39,7 +38,7 @@ angular.module('studyMate')
 
   return {
     getEvents: getEvents,
-    eventToggle: eventToggle,
-    getGuestList: getGuestList
+    getGuestList: getGuestList,
+    eventToggle: eventToggle
   };
 });
