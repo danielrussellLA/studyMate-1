@@ -10,11 +10,11 @@
   <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 myEvents" isOpen="false">
     <div class="myEventsListHeader text-center" ng-click="isOpen = !isOpen">My Events</div>
     <div class="list-group-item eventsListItem" ng-repeat="myEvent in myEventsArray | filter: upcomingEvents | orderBy:'datetime'" ng-show="isOpen">
-      <span>{{event.topic}}</span>
+      <span>{{myEvent.topic}}</span>
       <br>
-      <span>{{event.place}}</span>
+      <span>{{myEvent.place}}</span>
       <br>
-      <span>{{event.formatted}}</span>
+      <span>{{myEvent.formatted}}</span>
       <br>
       <span ng-repeat="guest in allGuestLists[event.id]"> {{guest}} </span>
     </div>

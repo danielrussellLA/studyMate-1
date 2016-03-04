@@ -80,10 +80,14 @@ angular.module('studyMate')
 
   $scope.getGuestList = function(event) {
     var list = [];
-    list = [];
+    // list = [];
     eventsListFact.getGuestList(event.id)
     .then(function(data) {
+      // $scope.myEventsArray = [];
       data.forEach(function(item) {
+        if(item.username === event.currentUser){
+          $scope.myEventsArray.push(event);
+        }
         list.push(item.username);
       });
       $scope.allGuestLists[event.id] = list;
@@ -91,6 +95,7 @@ angular.module('studyMate')
       console.log('++line 86: $scope.allGuestLists[event.id]  = ', $scope.allGuestLists[event.id]);
       console.log('++line87: event.id = ', event.id);
     });
+    // $scope.$apply();
   };
 
   $scope.getMyEvents = function(event) {
