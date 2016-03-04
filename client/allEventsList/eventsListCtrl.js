@@ -5,7 +5,7 @@ angular.module('studyMate')
   $scope.data = [];
   $scope.allGuestLists = {};
   $scope.booksShowing = false;
-  $scope.myEvents = [];
+  $scope.myEventsArray = [];
 
   $scope.toggleBooksShowing = function (){
     if($scope.booksShowing === true){
@@ -26,9 +26,11 @@ angular.module('studyMate')
   };
 
   $scope.displayEvent = function() {
-    eventsListFact.getEvents()
+    var token =  $window.localStorage.getItem('com.studymate');
+    eventsListFact.getEvents(token)
     .then(function(data) {
       data.forEach(function(value) {
+        // console.log('++line 33 eventsListCtrl value = ', value);
         moment.tz.add('America/Los_Angeles|PST PDT|80 70|0101|1Lzm0 1zb0 Op0');
         value.formatted = moment(value.datetime, moment.ISO_8601).format('MMM D, YYYY, h:mm A');
       });
@@ -58,7 +60,7 @@ angular.module('studyMate')
 
   $scope.eventAttendanceToggle = function(event) {
 
-    var token = $window.localStorage.getItem('com.studymate');
+    var token =  $window.localStorage.getItem('com.studymate');
 
     var eventData = {
       token: token,

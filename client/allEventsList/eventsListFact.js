@@ -1,10 +1,11 @@
 angular.module('studyMate')
 
 .factory('eventsListFact', function($http) {
-  var getEvents = function() {
+  var getEvents = function(token) {
     return $http({
-      method: 'GET',
+      method: 'POST',
       url: '/api/events/getEvents',
+      data: {token: token}
     }).then( function successs(response) {
       return response.data;
     }, function error(response) {
